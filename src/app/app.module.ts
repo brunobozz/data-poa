@@ -17,6 +17,7 @@ import { Er404Component } from './pages/er404/er404.component';
 
 // SERVICES
 import { ApiDadosabertosModule } from './modules/api-dadosabertos/api-dadosabertos.module';
+import { QuickAccessComponent } from './components/quick-access/quick-access.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ApiDadosabertosModule } from './modules/api-dadosabertos/api-dadosabert
     LinhasDeOnibusComponent,
     LinhasDeLotacaoComponent,
     HomeComponent,
-    Er404Component
+    Er404Component,
+    QuickAccessComponent
   ],
   imports: [
     BrowserModule,
