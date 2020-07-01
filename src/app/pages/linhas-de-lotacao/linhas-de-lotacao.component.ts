@@ -30,7 +30,7 @@ export class LinhasDeLotacaoComponent implements OnInit {
 
   searchNome(term: string) {
     console.log(term)
-    this.getOnibus(term)
+    this.getLotacao(term)
   }
 
 }
