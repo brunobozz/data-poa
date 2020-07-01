@@ -16,7 +16,7 @@ export class ApiDadosabertosService {
 
   RESOURCE: string = `${environment.url}/doc/digital/professionals`;
 
-  getLinhasDeOnibus(nome:string): Observable<any>{
+  getLinhasDeOnibus(): Observable<any>{
     return this.http.get<any>(`${this.RESOURCE}?a=nc&p=%&t=o`);
   }
 

@@ -2,25 +2,49 @@
     <fa-icon [icon]="faBus"></fa-icon>
     <span> Linhas de Lotação</span>
 </h2>
+
 <div class="card">
     <div class="card-body">
-        <!-- <div class="form-group">
-            <label for="linhaNome">Buscar Por Nome</label>
-            <input type="text" class="form-control" id="linhaNome" (keyup)="searchNome($event.target.value)" #linhaNome placeholder="Digite um nome">
-        </div> -->
+        <form>
+            <div class="form-group">
+                <label for="linhaNome">Buscar Linha de Lotação</label>
+                <input type="text" class="form-control" id="linhaNome" [formControl]="filter" placeholder="Digite o nome ou o código da lotação">
+            </div>
+        </form>
+
+
+        <p class="text-right"><small>{{ search(this.filter.value).length }} linhas de lotação encontradas</small></p>
+
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">CÓDIGO</th>
                     <th scope="col">NOME</th>
+                    <th scope="col" class="text-right">AÇÕES</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let linha of linhasDeLotacao">
+                <tr *ngFor="let linha of lotacao$ | async; index as i">
                     <td>{{linha.codigo}}</td>
                     <td>{{linha.nome}}</td>
+                    <td class="text-right">
+                        <button type="button" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            <fa-icon [icon]="faMapPin"></fa-icon> Itinerário
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+            </ngb-pagination>
+
+            <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+            </select>
+        </div> -->
     </div>
 </div>

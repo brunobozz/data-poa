@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // LIBRARIES
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -39,6 +40,8 @@ import { QuickAccessComponent } from './components/quick-access/quick-access.com
     AppRoutingModule,
     HttpClientModule,
     ApiDadosabertosModule,
+    ReactiveFormsModule,
+    FormsModule,
     FontAwesomeModule
   ],
   providers: [],
