@@ -3,4 +3,7 @@
     width: calc(100vw - 250px);
     position: fixed;
     right: 0;
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    overflow-y: auto;
 }

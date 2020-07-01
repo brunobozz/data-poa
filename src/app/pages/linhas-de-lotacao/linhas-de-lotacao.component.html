@@ -1,1 +1,23 @@
-<p>linhas-de-lotacao works!</p>
+<h2 class="mt-4 mb-5">Linhas de Lotação</h2>
+<div class="card">
+    <div class="card-body">
+        <!-- <div class="form-group">
+            <label for="linhaNome">Buscar Por Nome</label>
+            <input type="text" class="form-control" id="linhaNome" (keyup)="searchNome($event.target.value)" #linhaNome placeholder="Digite um nome">
+        </div> -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">CÓDIGO</th>
+                    <th scope="col">NOME</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let linha of linhasDeLotacao">
+                    <td>{{linha.codigo}}</td>
+                    <td>{{linha.nome}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
