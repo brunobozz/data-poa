@@ -1,9 +1,12 @@
 .quick-access {
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     .quick-item {
         height: 200px;
         width: 200px;
-        margin: 10px;
+        margin-right: 20px;
+        margin-bottom: 20px;
         padding: 10px;
         cursor: pointer;
         display: flex;
@@ -14,9 +17,9 @@
             opacity: 0.8;
         }
 
-        // .quick-item-icon{
-
-        // }
+        .quick-item-icon{
+            font-size: 48px;
+        }
 
         .quick-item-text{
             font-weight: bold;

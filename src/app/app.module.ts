@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
+// LIBRARIES
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // COMPONENTS
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/content/content.component';
@@ -35,7 +38,8 @@ import { QuickAccessComponent } from './components/quick-access/quick-access.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ApiDadosabertosModule
+    ApiDadosabertosModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
