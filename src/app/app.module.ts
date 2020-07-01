@@ -33,7 +33,7 @@ import { QuickAccessComponent } from './components/quick-access/quick-access.com
     LinhasDeLotacaoComponent,
     HomeComponent,
     Er404Component,
-    QuickAccessComponent
+    QuickAccessComponent,
   ],
   imports: [
     BrowserModule,
