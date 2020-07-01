@@ -13,7 +13,7 @@
         </form>
 
 
-        <small>{{ search(this.filter.value).length }} linhas de ônibus encontradas</small>
+        <p class="text-right"><small>{{ search(this.filter.value).length }} linhas de ônibus encontradas</small></p>
 
         <table class="table table-striped">
             <thead>
@@ -28,7 +28,7 @@
                     <td>{{linha.codigo}}</td>
                     <td>{{linha.nome}}</td>
                     <td class="text-right">
-                        <button type="button" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <button type="button" class="btn btn-warning btn-sm" (click)="getItinerario(linha.id)">
                             <fa-icon [icon]="faMapPin"></fa-icon> Itinerário
                         </button>
                     </td>

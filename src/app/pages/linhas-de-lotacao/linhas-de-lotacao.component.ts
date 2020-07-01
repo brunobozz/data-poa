@@ -52,4 +52,30 @@ export class LinhasDeLotacaoComponent implements OnInit {
     });
   }
 
+  getItinerario(id: string) {
+    this.apiDacosAbertos.getItinerario(id).subscribe((data) => {
+      let itinerario = Object.keys(data).map(i => data[i]);
+      let cord = '';
+
+      itinerario.forEach(function (value) {
+        if (value.lat) {
+          cord = cord + value.lat + ',' + value.lng + '/';
+        }
+      });
+
+      cord = cord + '@' + itinerario[1].lat + ',' + itinerario[1].lng;
+
+      // console.log(cord);
+
+      this.openInNewTab(cord);
+
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  openInNewTab(url: string) {
+    window.open('https://www.google.com/maps/dir/' + url + ',13z/data=!3m1!4b1', '_blank');
+  }
+
 }
