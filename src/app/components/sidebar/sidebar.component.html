@@ -1,14 +1,14 @@
-<div class="comp-sidebar bg-dark">
-    <button class="btn btn-dark btn-block mb-2 text-left" routerLink="/home">
+<div class="comp-sidebar bg-dark" [ngClass]="isOpen ? 'is-open' : 'is-close'">
+    <button class="btn btn-dark btn-block mb-2 text-left" routerLink="/home" (click)="closeMenu()">
         <fa-icon [icon]="faHome"></fa-icon>
-        <span> Início</span>
+        <span class="sidebar-label"> Início</span>
     </button>
-    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'onibus']">
+    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'onibus']" (click)="closeMenu()">
         <fa-icon [icon]="faBus"></fa-icon>
-        <span> Linhas de Ônibus</span>
+        <span class="sidebar-label"> Linhas de Ônibus</span>
     </button>
-    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'lotacao']">
+    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'lotacao']" (click)="closeMenu()">
         <fa-icon [icon]="faBus"></fa-icon>
-        <span> Linhas de Lotação</span>
+        <span class="sidebar-label"> Linhas de Lotação</span>
     </button>
 </div>

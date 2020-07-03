@@ -17,14 +17,30 @@
             opacity: 0.8;
         }
 
-        .quick-item-icon{
+        .quick-item-icon {
             font-size: 48px;
         }
 
-        .quick-item-text{
+        .quick-item-text {
             font-weight: bold;
             font-size: 24px;
             text-align: right;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .quick-access {
+        .quick-item {
+            width: 140px;
+            height: 140px;
+
+            .quick-item-icon {
+                font-size: 36px;
+            }
+            .quick-item-text {
+                font-size: 18px;
+            }
         }
     }
 }
