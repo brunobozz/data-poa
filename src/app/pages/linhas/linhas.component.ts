@@ -4,38 +4,52 @@ import { FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { faBus, faMapPin } from '@fortawesome/free-solid-svg-icons';
+import { faBus, faMapPin, faMap } from '@fortawesome/free-solid-svg-icons';
 import { ApiDadosabertosService } from 'src/app/modules/api-dadosabertos/service/api-dadosabertos.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-linhas-de-onibus',
-  templateUrl: './linhas-de-onibus.component.html',
-  styleUrls: ['./linhas-de-onibus.component.scss'],
+  selector: 'app-linhas',
+  templateUrl: './linhas.component.html',
+  styleUrls: ['./linhas.component.scss'],
   providers: [DecimalPipe]
 })
 
-export class LinhasDeOnibusComponent implements OnInit {
+export class LinhasComponent implements OnInit {
 
-  ONIBUS: any[] = [];
+  LINHAS: any[] = [];
+  linhaTipo: string
 
   faBus = faBus;
   faMapPin = faMapPin;
+  faMap = faMap;
 
-  onibus$: Observable<any[]>;
+  linhas$: Observable<any[]>;
   filter = new FormControl('');
 
   constructor(
+    private route: ActivatedRoute,
     private apiDacosAbertos: ApiDadosabertosService,
   ) { }
 
   ngOnInit() {
-    this.getOnibus();
+    this.route.params.subscribe( parametros => {
+      if (parametros['type']) {
+        this.linhaTipo = parametros.type;
+        if (this.linhaTipo === 'onibus'){
+          this.getLinhas('o');
+        }
+        if (this.linhaTipo === 'lotacao'){
+          this.getLinhas('l');
+        }
+      }
+    });
   }
 
-  getOnibus() {
-    this.apiDacosAbertos.getLinhasDeOnibus().subscribe((data) => {
-      this.ONIBUS = data;
-      this.onibus$ = this.filter.valueChanges.pipe(
+  getLinhas(type: string) {
+    this.apiDacosAbertos.getLinhas(type).subscribe((data) => {
+      this.LINHAS = data;
+      this.linhas$ = this.filter.valueChanges.pipe(
         startWith(''),
         map(text => this.search(text))
       );
@@ -45,14 +59,14 @@ export class LinhasDeOnibusComponent implements OnInit {
   }
 
   search(text: string): any[] {
-    return this.ONIBUS.filter(onibus => {
+    return this.LINHAS.filter(linhas => {
       const term = text.toLowerCase();
-      return onibus.nome.toLowerCase().includes(term)
-        || onibus.codigo.includes(term)
+      return linhas.nome.toLowerCase().includes(term)
+        || linhas.codigo.includes(term)
     });
   }
 
-  getItinerario(id: string) {
+  getMapa(id: string) {
     this.apiDacosAbertos.getItinerario(id).subscribe((data) => {
       let itinerario = Object.keys(data).map(i => data[i]);
       let cord = '';

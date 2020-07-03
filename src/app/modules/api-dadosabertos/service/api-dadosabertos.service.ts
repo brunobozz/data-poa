@@ -14,14 +14,10 @@ export class ApiDadosabertosService {
     private http: HttpClient
   ) { }
 
-  RESOURCE: string = `${environment.url}/doc/digital/professionals`;
+  RESOURCE: string = `${environment.urlPoatransporte}/doc/digital/professionals`;
 
-  getLinhasDeOnibus(): Observable<any>{
-    return this.http.get<any>(`${this.RESOURCE}?a=nc&p=%&t=o`);
-  }
-
-  getLinhasDeLotacao(): Observable<any>{
-    return this.http.get<any>(`${this.RESOURCE}?a=nc&p=%&t=l`);
+  getLinhas(type: string): Observable<any>{
+    return this.http.get<any>(`${this.RESOURCE}?a=nc&p=%&t=${type}`);
   }
 
   getItinerario(id: String): Observable<any>{

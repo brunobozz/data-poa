@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 //PAGES
 import { HomeComponent } from './pages/home/home.component';
-import { LinhasDeOnibusComponent } from './pages/linhas-de-onibus/linhas-de-onibus.component';
-import { LinhasDeLotacaoComponent } from './pages/linhas-de-lotacao/linhas-de-lotacao.component';
+import { LinhasComponent } from './pages/linhas/linhas.component';
+import { ItinerariosComponent } from './pages/itinerarios/itinerarios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'linhas-de-onibus', component: LinhasDeOnibusComponent },
-  { path: 'linhas-de-lotacao', component: LinhasDeLotacaoComponent }
+  { path: 'linhas/:type', component: LinhasComponent },
+  { path: 'itinerarios/:id', component: ItinerariosComponent },
 ];
 
 @NgModule({

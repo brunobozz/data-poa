@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: "http://www.poatransporte.com.br/php/facades/process.php"
+  urlPoatransporte: "http://www.poatransporte.com.br/php/facades/process.php",
+  urlOpenstreetmap :"https://nominatim.openstreetmap.org/"
 };
 
 /*
