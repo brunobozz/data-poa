@@ -10,10 +10,21 @@ export class SidebarComponent implements OnInit {
 
   faBus = faBus;
   faHome = faHome;
+  isOpen: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+  }
+
+  closeMenu(){
+    if(this.isOpen){
+      this.isOpen = !this.isOpen;
+    }
   }
 
 }
