@@ -3,11 +3,11 @@
         <fa-icon [icon]="faHome"></fa-icon>
         <span> Início</span>
     </button>
-    <button class="btn btn-dark btn-block mb-2 text-left" routerLink="/linhas-de-onibus">
+    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'onibus']">
         <fa-icon [icon]="faBus"></fa-icon>
         <span> Linhas de Ônibus</span>
     </button>
-    <button class="btn btn-dark btn-block mb-2 text-left" routerLink="/linhas-de-lotacao">
+    <button class="btn btn-dark btn-block mb-2 text-left" [routerLink]="['/linhas', 'lotacao']">
         <fa-icon [icon]="faBus"></fa-icon>
         <span> Linhas de Lotação</span>
     </button>

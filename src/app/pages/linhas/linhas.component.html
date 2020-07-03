@@ -1,0 +1,46 @@
+<h2 class="mt-4 mb-5">
+    <fa-icon [icon]="faBus"></fa-icon>
+    <span *ngIf="linhaTipo === 'onibus'"> Linhas de Ônibus</span>
+    <span *ngIf="linhaTipo === 'lotacao'"> Linhas de Lotação</span>
+</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="linhaNome" *ngIf="linhaTipo === 'onibus'">Buscar Linha de Ônibus</label>
+                <label for="linhaNome" *ngIf="linhaTipo === 'lotacao'">Buscar Linha de Lotação</label>
+                <input type="text" class="form-control" id="linhaNome" [formControl]="filter" placeholder="Digite o nome ou o código da linha">
+            </div>
+        </form>
+
+        <p class="text-right"><small>{{ search(this.filter.value).length }} linhas de ônibus encontradas</small></p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">CÓDIGO</th>
+                        <th scope="col">NOME</th>
+                        <th scope="col" class="text-right">AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let linha of linhas$ | async; index as i">
+                        <td>{{linha.codigo}}</td>
+                        <td>{{linha.nome}}</td>
+                        <td class="text-right">
+                            <div class="d-flex flex-nowrap">
+                                <button type="button" class="btn btn-warning btn-circle" [routerLink]="['/itinerarios', linha.id]" tooltip="Itinerários">
+                                    <fa-icon [icon]="faMapPin"></fa-icon>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-circle ml-2" (click)="getMapa(linha.id)" tooltip="Ver rota no Mapa">
+                                    <fa-icon [icon]="faMap"></fa-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
