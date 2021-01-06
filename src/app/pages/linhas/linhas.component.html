@@ -6,15 +6,16 @@
 
 <div class="card">
     <div class="card-body">
-        <form>
-            <div class="form-group">
-                <label for="linhaNome" *ngIf="linhaTipo === 'onibus'">Buscar Linha de Ônibus</label>
-                <label for="linhaNome" *ngIf="linhaTipo === 'lotacao'">Buscar Linha de Lotação</label>
-                <input type="text" class="form-control" id="linhaNome" [formControl]="filter" placeholder="Digite o nome ou o código da linha">
-            </div>
-        </form>
-
-        <p class="text-right"><small>{{ search(this.filter.value).length }} linhas de ônibus encontradas</small></p>
+        <div class="search-sticky">
+            <form>
+                <div class="form-group">
+                    <label for="linhaNome" *ngIf="linhaTipo === 'onibus'">Buscar Linha de Ônibus</label>
+                    <label for="linhaNome" *ngIf="linhaTipo === 'lotacao'">Buscar Linha de Lotação</label>
+                    <input type="text" class="form-control" id="linhaNome" [formControl]="filter" placeholder="Digite o nome ou o código da linha">
+                </div>
+            </form>
+            <p class="text-right"><small>{{ search(this.filter.value).length }} linhas de ônibus encontradas</small></p>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
