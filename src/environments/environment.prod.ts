@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  urlPoatransporte: "http://www.poatransporte.com.br/php/facades/process.php",
+  urlOpenstreetmap :"https://nominatim.openstreetmap.org/"
 };
