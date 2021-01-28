@@ -9,12 +9,14 @@ import { environment } from '../../../../environments/environment';
 })
 
 export class ApiDadosabertosService {
-  
+
   constructor(
     private http: HttpClient
   ) { }
 
-  RESOURCE: string = `${environment.urlPoatransporte}/doc/digital/professionals`;
+
+
+  RESOURCE: string = 'http://www.poatransporte.com.br/php/facades/process.php/doc/digital/professionals';
 
   getLinhas(type: string): Observable<any>{
     return this.http.get<any>(`${this.RESOURCE}?a=nc&p=%&t=${type}`);
